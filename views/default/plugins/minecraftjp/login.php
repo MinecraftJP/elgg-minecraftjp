@@ -1,0 +1,1 @@
+<a href="<?php echo elgg_get_site_url() . 'minecraftjp/login'; ?>" class="elgg-button elgg-button-action"><?php echo elgg_echo('minecraftjp:login_with_minecraftjp'); ?></a>
