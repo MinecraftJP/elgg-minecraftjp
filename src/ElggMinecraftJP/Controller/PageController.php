@@ -181,15 +181,16 @@ class PageController extends Controller {
     }
 
     private function updateAvatar($elggUser, $mcjpUser) {
-        $avatarUrl = 'https://avatar.minecraft.jp/' . $mcjpUser['preferred_username'] . '/minecraft/550.png';
+        $avatarUrl = 'https://avatar.minecraft.jp/' . $mcjpUser['preferred_username'] . '/minecraft/500.png';
         $file = new \ElggFile();
         $file->owner_guid = $elggUser->guid;
-        foreach ($this->avatarSizes as $size => $dimensions) {
-            $image = get_resized_image_from_existing_file($avatarUrl, $dimensions[0], $dimensions[1], $dimensions[2]);
+        $iconSizes = elgg_get_config('icon_sizes');
+        foreach ($iconSizes as $name => $info) {
+            $resized = get_resized_image_from_existing_file($avatarUrl, $info['w'], $info['h'], $info['square']);
 
-            $file->setFilename(sprintf('profile/%s%s.jpg', $elggUser->guid, $size));
+            $file->setFilename(sprintf('profile/%s%s.jpg', $elggUser->guid, $name));
             $file->open('write');
-            $file->write($image);
+            $file->write($resized);
             $file->close();
         }
 
