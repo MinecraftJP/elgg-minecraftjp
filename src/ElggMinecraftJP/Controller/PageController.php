@@ -133,6 +133,14 @@ class PageController extends Controller {
     }
 
     public function unlink() {
+        // Validate token
+        $token = _elgg_services()->request->query->get('token');
+        if (!Security::validateToken($token)) {
+            system_messages(elgg_echo('actionunauthorized'), 'error');
+            forward('/');
+            exit;
+        }
+
         $user = _elgg_services()->session->getLoggedInUser();
         if (!empty($user)) {
             elgg_unset_plugin_user_setting('sub', $user->guid, 'minecraftjp');

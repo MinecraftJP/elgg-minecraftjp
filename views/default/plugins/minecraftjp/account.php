@@ -7,7 +7,7 @@
         $userId = _elgg_services()->session->getLoggedInUserGuid();
         $username = elgg_get_plugin_user_setting('username', $userId, 'minecraftjp');
         if (!empty($username)) { // Linked
-            $url = elgg_get_site_url() . 'minecraftjp/unlink';
+            $url = elgg_get_site_url() . 'minecraftjp/unlink?token=' . ElggMinecraftJP\Security::generateToken();
             $title = elgg_echo('minecraftjp:unlink_account');
             printf('<p><label>%s: <code>%s</code></label>', elgg_echo('minecraftjp:minecraft_username'), $username);
         } else { // not linked
