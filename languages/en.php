@@ -20,6 +20,7 @@ return array(
     'minecraftjp:unlink_account' => 'Unlink account',
     'minecraftjp:minecraft_username' => 'Minecraft Username',
     'minecraftjp:login_with_minecraftjp' => 'Login with minecraft.jp',
+    'minecraftjp:for_developer' => 'for Developer',
 
     'minecraftjp:email:welcome:subject' => 'Welcome to %s',
     'minecraftjp:email:welcome:body' => '

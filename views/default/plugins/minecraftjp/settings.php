@@ -45,3 +45,11 @@
         <p class="elgg-text-help"><?php echo elgg_echo('minecraftjp:username_suffix_explain'); ?></p>
     </div>
 </fieldset>
+
+<fieldset class="elgg-fieldset">
+    <legend><?php echo elgg_echo('minecraftjp:for_developer'); ?></legend>
+
+<pre>$userId = _elgg_services()->session->getLoggedInUserGuid();
+echo 'My Minecraft username is ' .  elgg_get_plugin_user_setting('username', $userId, 'minecraftjp');
+echo 'My Minecraft UUID is ' . elgg_get_plugin_user_setting('uuid', $userId, 'minecraftjp');</pre>
+</fieldset>
